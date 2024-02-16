@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPCOM</title>
+    <!-------------------------------------------------- LINKS -------------------------------------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <!-------------------------------------------------- FAVICON -------------------------------------------------------------->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="favicon.ico" rel="SHORTCUT ICON" />
+    <!-------------------------------------------------- STYLE -------------------------------------------------------------->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        object-fit: cover;
+        font-family: 'Poppins';
+        
+      }
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+      header {
+        background-color: #002b98;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 70px;
+        
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+      }
+      .sign {
+        display: flex;
+        width: 230px;
+        justify-content: space-between;
+      }
+      .btn {
+        padding: 10px 25px;
+        border: 2px solid yellow;
+        border-radius: 0px 99px 0px 99px;
+        color: #fff;
+      }
+      .btn-1 {
+        padding: 10px 25px;
+        border: 2px solid yellow;
+        border-radius: 99px 0px 99px 0px;
+        color: #fff;
+      }
+      .Nav-links {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(to right, yellow 50%, #fff 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+      }
+      .Nav-links:hover {
+        background-position: 0%;
+      }
+      @media (max-width: 858px) {
+      }
+      .content {
+        height: 590px;
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .content .images {
+        width: 100%;
+        height: 590px;
+      }
+
+      .images .slider {
+        width: 100%;
+        height: 590px;
+        object-fit: cover;
+      }
+      section {
+        position: relative;
+        height: 400px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #002b98;
+      }
+      .swiper {
+        width: 1250px;
+      }
+      .container {
+        border-radius: 20px;
+      }
+      .card .image {
+        width: 100%;
+        height: 300px;
+      
+      }
+      .card .image img {
+        width: 100%;
+        object-fit: cover;
+        height: 300px;
+        border-radius: 10px;
+      }
+      .card {
+        position: relative;
+        text-align: center;
+        font-size: 600;
+        font-size: 18px;
+        border-radius: 10px;
+        color: #fff;
+      }
+      .swiper-pagination-bullet {
+        height: 7px;
+        width: 26px;
+        background: yellow;
+        border-radius: 25px;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: yellow;
+      }
+      .card-resident{
+        width: 100%;
+        height: 500px;
+        background: yellow;
+        display: flex;
+      }
+      .card-body{
+        width: 300px;
+        height: 400px;
+        
+      }
+      .img{
+        width: 100%;
+      }
+      .img img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="capcom-logo.png" alt="capcom" />
+      </div>
+      <nav>
+        <li><a class="Nav-links" href="#">HOME</a></li>
+        <li><a class="Nav-links" href="#">ABOUT</a></li>
+        <li><a class="Nav-links" href="#">GAMES</a></li>
+        <li><a class="Nav-links" href="#">CONTACT US</a></li>
+      </nav>
+      <div class="sign">
+        <a class="btn" href="#">Sign In</a>
+        <a class="btn-1" href="#">Sign Up</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="images">
+        <img class="slider" src="Resident evil.png" alt="Resident evil 4"/>
+        <img class="slider" src="Street fighter.jpg" alt="Street Fighter 6"/>
+        <img class="slider" src="Dead risng.jpg" />
+        <img class="slider" src="Resident-Evil-4-Remake-Separate.jpg" alt="Separate Ways"/>
+        <img class="slider" src="Monster hunter.webp" alt="Monster Hunter"/>
+        <img class="slider" src="Resident evil 2.jpg" alt="Resident evil 2" />
+        <img class="slider" src="devil.jpg" alt="Devil May Cry" />
+      </div>
+    </div>
+     <section>
+       <div class="swiper mySwiper container-1">
+         <div class="swiper-wrapper content-1">
+           <div class="swiper-slide card">
+             <div class="card-content">
+               <div class="image">
+                 <img value="Resident evil 4" src="resident evil-box.jpg" alt="Resident evil 4" />
+               </div>
+             </div>
+             <span>RESIDENT EVIL 4</span>
+           </div>
+             <div class="swiper-slide card">
+               <div class="card-content">
+                 <div class="image">
+                   <img src="DEvil-box.png" alt="Devil May Cry 5" />
+                 </div>
+               </div>
+               <span>DEVIL MAY CRY 5</span>
+             </div>
+           <div class="swiper-slide card">
+             <div class="card-content">
+               <div class="image">
+                 <img src="Street figter 5.jpg" alt="Street Fighter 5" />
+               </div>
+             </div>
+             <span>STREET FIGHTER 5</span>
+           </div>
+           <div class="swiper-slide card">
+             <div class="card-content">
+               <div class="image">
+                 <img src="separate-1.jpg" alt="Separate ways" />
+               </div>
+             </div>
+               <span>RESIDENT EVIL 4: SEPARATE WAYS</span>
+           </div>
+           <div class="swiper-slide card">
+             <div class="card-content">
+               <div class="image">
+                 <img src="monster-box.jpg" alt="Monster Hunter" />
+               </div>
+             </div>
+             <span>MONSTER HUNTER</span>
+           </div>
+           <div class="swiper-slide card">
+             <div class="card-content">
+               <div class="image">
+                 <img src="resident evil-2 box.jpg" alt="Resident evil 2" />
+               </div>
+             </div>
+             <span>RESIDENT EVIL 2</span>
+           </div>
+         </div>
+       </div>
+       <div class="swiper-button-next"></div>
+       <div class="swiper-button-prev"></div>
+       <div class="swiper-pagination"></div>
+     </section>
+
+    <div>
+      <h2>RESIDENT EVIL GAMES</h2>
+       <div class="card-resident">
+        <div class="card-body">
+         <div class="img"><img src="resident evil 6.jpg" alt="RESIDENT evil 6"></div>
+          <a href="#">
+            <span class="card-head">Resident evil 6</span>
+            <p>
+      
+            </p>
+            <div class="img"><img src="Resident evil 3.png" alt="Resident evil 3"></div>
+          <a href="#">
+            <span class="card-head">Resident evil 3</span>
+            <p>
+              
+            </p>
+            <div class="img"><img src="Resident evil 5.jpg" alt="Resident evil 5"></div>
+          <a href="#">
+            <span class="card-head">Resident evil 5</span>
+            <p>
+              
+            </p>
+          </a>
+        </div>
+       </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var indexValue = 0;
+      function slideShow() {
+        setTimeout(slideShow, 2500);
+        var x;
+        const img = document.querySelectorAll(".slider");
+        for (x = 0; x < img.length; x++) {
+          img[x].style.display = "none";
+        }
+        indexValue++;
+        if (indexValue > img.length) {
+          indexValue = 1;
+        }
+        img[indexValue - 1].style.display = "block";
+      }
+      slideShow();
+
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        grabCursor: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>

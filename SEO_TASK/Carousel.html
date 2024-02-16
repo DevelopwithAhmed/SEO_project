@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-image: linear-gradient(328deg, rgba(29, 29, 29, 0.05) 0%, rgba(29, 29, 29, 0.05) 25%,rgba(226, 226, 226, 0.05) 25%, rgba(226, 226, 226, 0.05) 50%,rgba(21, 21, 21, 0.05) 50%, rgba(21, 21, 21, 0.05) 75%,rgba(216, 216, 216, 0.05) 75%, rgba(216, 216, 216, 0.05) 100%),linear-gradient(172deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 25%,rgba(108, 108, 108, 0.05) 25%, rgba(108, 108, 108, 0.05) 50%,rgba(21, 21, 21, 0.05) 50%, rgba(21, 21, 21, 0.05) 75%,rgba(236, 236, 236, 0.05) 75%, rgba(236, 236, 236, 0.05) 100%),linear-gradient(207deg, rgba(153, 153, 153, 0.05) 0%, rgba(153, 153, 153, 0.05) 25%,rgba(83, 83, 83, 0.05) 25%, rgba(83, 83, 83, 0.05) 50%,rgba(5, 5, 5, 0.05) 50%, rgba(5, 5, 5, 0.05) 75%,rgba(82, 82, 82, 0.05) 75%, rgba(82, 82, 82, 0.05) 100%),linear-gradient(297deg, rgba(26, 26, 26, 0.05) 0%, rgba(26, 26, 26, 0.05) 25%,rgba(223, 223, 223, 0.05) 25%, rgba(223, 223, 223, 0.05) 50%,rgba(232, 232, 232, 0.05) 50%, rgba(232, 232, 232, 0.05) 75%,rgba(153, 153, 153, 0.05) 75%, rgba(153, 153, 153, 0.05) 100%),linear-gradient(204deg, rgba(120, 120, 120, 0.05) 0%, rgba(120, 120, 120, 0.05) 25%,rgba(191, 191, 191, 0.05) 25%, rgba(191, 191, 191, 0.05) 50%,rgba(246, 246, 246, 0.05) 50%, rgba(246, 246, 246, 0.05) 75%,rgba(123, 123, 123, 0.05) 75%, rgba(123, 123, 123, 0.05) 100%),linear-gradient(90deg, rgb(32,234,255),rgb(37,116,255));
+        }
+        .carousel {
+            position: relative;
+            width: 90%;
+            height: 600px;
+            margin: 20px auto;
+            /* top: 20px; */
+        }
+
+        .carousel__button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+        }
+
+        .carousel__button img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .carousel__button--left {
+            left: -45px;
+        }
+
+        .carousel__button--right {
+            right: -45px;
+        }
+
+        .carousel__tracker--container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel__tracker {
+            height: 100%;
+        }
+
+        .carousel__slider {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            transition: left 250ms ease-in;
+        }
+
+        .carousel__slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel__nav {
+            display: flex;
+            justify-content: center;
+            height: 20px;
+            padding: 5px 0;
+        }
+
+        .carousel__indicator {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 0;
+            margin: 0 5px;
+        }
+
+        .carousel__active {
+            background-color: rgba(0, 0, 0, .75);
+        }
+        .is-hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <button class="carousel__button carousel__button--left is-hidden">
+            <img src="previous-arrows-svgrepo-com.svg" alt="" />
+        </button>
+        <div class="carousel__tracker--container">
+            <ul class="carousel__tracker">
+                <li class="carousel__slider current-slide">
+                    <img src="/SEO_TASK/image/Resident evil.png" alt="" />
+                </li>
+                <li class="carousel__slider">
+                    <img src="/SEO_TASK/image/Resident evil 2.jpg" alt="" />
+                </li>
+                <li class="carousel__slider">
+                    <img src="SEO_TASK/image/Resident evil 3.png" alt="" />
+                </li>
+                <li class="carousel__slider">
+                    <img src="SEO_TASK/image/Resident evil 5.jpg" alt="" />
+                </li>
+                <li class="carousel__slider">
+                    <img src="SEO_TASK/image/resident evil 6.jpg" alt="" />
+                </li>
+            </ul>
+        </div>
+        <button class="carousel__button carousel__button--right">
+            <img src="next-arrows-svgrepo-com.svg" alt="" />
+        </button>
+        <div class="carousel__nav">
+            <button class="carousel__indicator carousel__active"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+        </div>
+    </div>
+
+    <script>
+        const tracker = document.querySelector('.carousel__tracker');
+        const slides = Array.from(tracker.children);
+        const nextButton = document.querySelector('.carousel__button--right');
+        const previousButton = document.querySelector('.carousel__button--left');
+        const dotsNav = document.querySelector('.carousel__nav')
+        const dots = Array.from(dotsNav.children);
+
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        // arrrange the sliders next to one another 
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        slides.forEach(setSlidePosition);
+
+        const moveToSlide = (tracker, currentSlide, targetSlide) => {
+            tracker.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');
+        }
+
+        const updateDots = (currentDot, targetDot) => {
+            currentDot.classList.remove('carousel__active');
+            targetDot.classList.add('carousel__active');
+        }
+
+        const showHiddenArrow = (slides, previousButton, nextButton, targetIndex) => {
+            if (targetIndex === 0) {
+                previousButton.classList.add('is-hidden');
+                nextButton.classList.remove('is-hidden');
+            } else if (targetIndex === slides.length - 1) {
+                previousButton.classList.remove('is-hidden');
+                nextButton.classList.add('is-hidden');
+            } else {
+                previousButton.classList.remove('is-hidden');
+                nextButton.classList.remove('is-hidden');
+            }
+        }
+
+        // When I click left, move sliders to the left
+        previousButton.addEventListener('click', e => {
+            const currentSlide = tracker.querySelector('.current-slide')
+            const prevSlide = currentSlide.previousElementSibling;
+            const currentDot = dotsNav.querySelector('.carousel__active');
+            const preDot = currentDot.previousElementSibling;
+            const prevIndex = slides.findIndex(slides => slides === prevSlide);
+
+
+            moveToSlide(tracker, currentSlide, prevSlide);
+            updateDots(currentDot, preDot);
+            showHiddenArrow(slides, previousButton, nextButton, prevIndex);
+
+        });
+
+        // When I click right, move sliders to the right
+        nextButton.addEventListener('click', e => {
+            const currentSlide = tracker.querySelector('.current-slide');
+            const nextSlide = currentSlide.nextElementSibling;
+            const currentDot = dotsNav.querySelector('.carousel__active');
+            const nextDot = currentDot.nextElementSibling;
+            const nextIndex = slides.findIndex(slides => slides === nextSlide);
+
+            moveToSlide(tracker, currentSlide, nextSlide);
+            updateDots(currentDot, nextDot);
+            showHiddenArrow(slides, previousButton, nextButton, nextIndex);
+
+        });
+        // When I click the nav indicators, move to that slide
+        dotsNav.addEventListener('click', e => {
+            const targetDot = e.target.closest('button')
+
+            if (!targetDot) return;
+
+            const currentSlide = tracker.querySelector('.current-slide')
+            const currentDot = dotsNav.querySelector('.carousel__active');
+            const targetIndex = dots.findIndex(dot => dot === targetDot);
+            const targetSlide = slides[targetIndex];
+
+
+            moveToSlide(tracker, currentSlide, targetSlide);
+            updateDots(currentDot, targetDot);
+            showHiddenArrow(slides, previousButton, nextButton, targetIndex);
+        });
+
+    </script>
+</body>
+
+</html>
